@@ -2,7 +2,7 @@ from operator import attrgetter
 
 from skmultiflow.core import RegressorMixin
 from skmultiflow.trees.hoeffding_tree import HoeffdingTree
-from skmultiflow.trees.numeric_attribute_regression_observer import NumericAttributeRegressionObserver2CS
+from skmultiflow.trees.numeric_attribute_regression_observer2cs import NumericAttributeRegressionObserver2CS
 from skmultiflow.trees.nominal_attribute_regression_observer import NominalAttributeRegressionObserver
 from skmultiflow.utils.utils import *
 from skmultiflow.utils import check_random_state
