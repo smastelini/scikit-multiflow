@@ -180,7 +180,7 @@ class RegressionHoeffdingTree2CS(RegressorMixin, HoeffdingTree):
                     if ht.nominal_attributes is not None and i in ht.nominal_attributes:
                         obs = NominalAttributeRegressionObserver()
                     else:
-                        obs = NumericAttributeRegressionObserver()
+                        obs = NumericAttributeRegressionObserver2CS()
                     self._attribute_observers[i] = obs
                 obs.observe_attribute_class(X[i], y, weight)
 
@@ -264,7 +264,7 @@ class RegressionHoeffdingTree2CS(RegressorMixin, HoeffdingTree):
                     if rht.nominal_attributes is not None and i in rht.nominal_attributes:
                         obs = NominalAttributeRegressionObserver()
                     else:
-                        obs = NumericAttributeRegressionObserver()
+                        obs = NumericAttributeRegressionObserver2CS()
                     self._attribute_observers[i] = obs
                 obs.observe_attribute_class(X[i], y, weight)
 
