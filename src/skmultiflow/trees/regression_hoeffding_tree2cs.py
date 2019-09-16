@@ -101,7 +101,9 @@ class RegressionHoeffdingTree2CS(RegressorMixin, HoeffdingTree):
                     corrs.append(0.0)
                 else:
                     corrs.append(np.abs(num_ / np.sqrt(den_)))
-            order = np.argsort(corrs)
+            temp = np.argsort(corrs)
+            order = np.empty_like(temp)
+            order[temp] = np.arange(len(order))
             sel = set()
             for j, o in enumerate(order):
                 if o < 2:
