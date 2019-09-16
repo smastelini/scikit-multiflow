@@ -2,7 +2,7 @@ from operator import attrgetter
 
 from skmultiflow.core import RegressorMixin
 from skmultiflow.trees.hoeffding_tree import HoeffdingTree
-from skmultiflow.trees.numeric_attribute_regression_observer import NumericAttributeRegressionObserver
+from skmultiflow.trees.numeric_attribute_regression_observer import NumericAttributeRegressionObserver2CS
 from skmultiflow.trees.nominal_attribute_regression_observer import NominalAttributeRegressionObserver
 from skmultiflow.utils.utils import *
 from skmultiflow.utils import check_random_state
@@ -13,7 +13,7 @@ _TARGET_MEAN = 'mean'
 _PERCEPTRON = 'perceptron'
 
 
-class RegressionHoeffdingTree2(RegressorMixin, HoeffdingTree):
+class RegressionHoeffdingTree2CS(RegressorMixin, HoeffdingTree):
     """ Regression Hoeffding Tree or Fast Incremental Model Tree with Drift Detection.
 
     This is an implementation of the Fast Incremental Model Tree with Drift Detection (FIMT-DD)
@@ -104,7 +104,7 @@ class RegressionHoeffdingTree2(RegressorMixin, HoeffdingTree):
             order = np.argsort(corrs)
             sel = set()
             for j, o in enumerate(order):
-                if o < 5:
+                if o < 2:
                     sel.add(j)
             if ht.nominal_attributes is not None:
                 sel.update(ht.nominal_attributes)

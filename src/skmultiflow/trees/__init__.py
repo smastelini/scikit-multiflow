@@ -7,10 +7,10 @@ from .hoeffding_adaptive_tree import HAT
 from .hoeffding_anytime_tree import HATT
 from .lc_hoeffding_tree import LCHT
 from .regression_hoeffding_tree import RegressionHoeffdingTree
-from .regression_hoeffding_tree2 import RegressionHoeffdingTree2
+from .regression_hoeffding_tree2cs import RegressionHoeffdingTree2CS
 from .regression_hoeffding_adaptive_tree import RegressionHAT
 from .multi_target_regression_hoeffding_tree import MultiTargetRegressionHoeffdingTree
 from .stacked_single_target_hoeffding_tree_regressor import StackedSingleTargetHoeffdingTreeRegressor
 
-__all__ = ["HoeffdingTree", "HAT", "LCHT", "RegressionHoeffdingTree", "RegressionHoeffdingTree2", "RegressionHAT",
+__all__ = ["HoeffdingTree", "HAT", "LCHT", "RegressionHoeffdingTree", "RegressionHoeffdingTree2CS", "RegressionHAT",
            "MultiTargetRegressionHoeffdingTree", "StackedSingleTargetHoeffdingTreeRegressor"]
