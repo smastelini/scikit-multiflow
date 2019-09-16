@@ -91,18 +91,23 @@ class RegressionHoeffdingTree2(RegressorMixin, HoeffdingTree):
 
             corrs = []
             for j, sxy in enumerate(pre_split_dist[3]):
+                if ht.nominal_attributes is not None and j in ht.nominal_attributes:
+                    corrs.append(0.0)
+                    continue
                 num_ = (sxy - (ht.sum_of_attribute_values[j] * ht.sum_of_values) / ht.samples_seen)
                 den_ = (ht.sum_of_attribute_squares[j] - (ht.sum_of_attribute_values[j] ** 2) / ht.samples_seen) * \
                     (ht.sum_of_squares - (ht.sum_of_values ** 2) / ht.samples_seen)
-                if den_ < 0:
+                if den_ <= 0:
                     corrs.append(0.0)
                 else:
                     corrs.append(np.abs(num_ / np.sqrt(den_)))
             order = np.argsort(corrs)
             sel = set()
             for j, o in enumerate(order):
-                if o < 3:
+                if o < 5:
                     sel.add(j)
+            if ht.nominal_attributes is not None:
+                sel.update(ht.nominal_attributes)
 
             if not ht.no_preprune:
                 # Add null split as an option
